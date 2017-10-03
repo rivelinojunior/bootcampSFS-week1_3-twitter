@@ -1,0 +1,15 @@
+body {
+  background-color: $background;
+  font-family: $base_font;
+  // color: $dark_grey;
+}
+
+a {
+  color: $blue_light;
+}
+
+.logo-circle {
+  width: 11.385rem;
+  margin: 0 auto;
+  display: block;
+}

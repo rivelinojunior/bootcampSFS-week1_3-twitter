@@ -1,0 +1,53 @@
+.form {
+  margin-top: 3rem;
+}
+
+.form-wrapper {
+  background-color: $white;
+  padding: 2rem 15%;
+  margin-top: 2rem;
+}
+
+.form-wrapper p {
+  color: $dark_blue;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid $blue_light;
+  box-shadow: 0 1px 0 0 $blue_light;
+}
+
+.remember, .forgot {
+  padding: 0 !important;
+}
+
+.forgot {
+  text-align: right;
+}
+
+[type="checkbox"]:checked + label:before {
+  border-right: 2px solid $blue_light;
+  border-bottom: 2px solid $blue_light;
+}
+
+.form-title {
+  color: $blue_light;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.btn {
+  color: $white;
+  border: none;
+  background: $blue_btn;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn:hover {
+  background: $blue_light;
+}
