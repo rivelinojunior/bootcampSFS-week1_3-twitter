@@ -1,0 +1,19 @@
+.main-nav {
+  background-color: $blue_light;
+}
+
+.side-nav {
+  background-color: $blue_light;
+}
+
+.side-nav li > a {
+  color: $white;
+}
+
+.dropdown-content {
+  background-color: $white;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+  color: $blue_light;
+}
