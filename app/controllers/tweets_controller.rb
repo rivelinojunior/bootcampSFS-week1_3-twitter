@@ -13,7 +13,7 @@ class TweetsController < ApplicationController
       else
         format.html { render :new}
         format.json { render json: @tweet.errors, status: :unprocessable_entity }
-      else
+      end
     end
   end
 
