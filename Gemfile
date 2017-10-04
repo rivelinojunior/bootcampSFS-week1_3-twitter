@@ -52,7 +52,7 @@ group :development, :test do
   # BDD for Ruby
   gem 'rspec-rails', '~> 3.6'
   # Capybara is an integration testing tool for rack based web applications. It simulates how a user would interact with a website
-  gem 'capybara', '~> 2.15', '>= 2.15.1'
+  gem 'capybara', '~> 2.15', '>= 2.15.3'
 end
 
 group :development do
