@@ -29,8 +29,8 @@
 
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">Add New Tweet</a></li>
-  <li><a href="#!">Profile</a></li>
+  <li><%= link_to 'Add New Tweet', tweets_new_path %></li>
+  <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
   <li class="divider"></li>
-  <li><a href="#!">Logout</a></li>
+  <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 </ul>
