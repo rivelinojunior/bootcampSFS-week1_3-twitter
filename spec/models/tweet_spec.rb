@@ -10,6 +10,8 @@ RSpec.describe Tweet, :type => :model do
       expect(subject).to be_valid
     end
 
+    it { should validate_length_of(:description).is_at_most(280) }
+
   end
 
   context "invalid" do
