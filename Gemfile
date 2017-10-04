@@ -51,8 +51,15 @@ group :development, :test do
   gem 'byebug', platform: :mri
   # BDD for Ruby
   gem 'rspec-rails', '~> 3.6'
+
   # Capybara is an integration testing tool for rack based web applications. It simulates how a user would interact with a website
   gem 'capybara', '~> 2.15', '>= 2.15.3'
+end
+
+group :test do
+  # Collection of testing matchers extracted from Shoulda
+  gem "shoulda-matchers", ">= 3.0.0",
+    require: false
 end
 
 group :development do
