@@ -45,12 +45,12 @@ gem 'pg_search', '~> 2.1', '>= 2.1.1'
 gem 'materialize-sass'
 
 gem 'material_icons'
-
 gem 'gravatar_image_tag'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry-rails'
   # BDD for Ruby
   gem 'rspec-rails', '~> 3.6'
 
