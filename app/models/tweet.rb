@@ -1,6 +1,6 @@
 class Tweet < ApplicationRecord
-
-  scope :timeline, -> user_id { get_timeline(user_id) }
+  default_scope {order(created_at: :desc)}
+  scope :timeline, -> user_id {get_timeline(user_id)}
 
   belongs_to :user
 
