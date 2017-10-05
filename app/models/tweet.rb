@@ -4,6 +4,9 @@ class Tweet < ApplicationRecord
 
   belongs_to :user
 
+  has_many :likes, dependent: :destroy
+  has_many :liked_users, through: :likes, source: :user
+
   validates :description, presence: true, length: {maximum: 280}
 
   def self.get_timeline(user_id)
