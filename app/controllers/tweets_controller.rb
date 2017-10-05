@@ -1,4 +1,10 @@
 class TweetsController < ApplicationController
+  before_action :authenticate_user!
+
+  def index
+    @tweets = Tweet.timeline current_user.id
+  end
+
   def new
     @tweet = Tweet.new
   end
