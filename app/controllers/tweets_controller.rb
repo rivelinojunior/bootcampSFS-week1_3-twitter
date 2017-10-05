@@ -47,9 +47,22 @@ class TweetsController < ApplicationController
     end
   end
 
+  def search
+    search_type = params[:type]
+    query = params[:q]
+    
+    if(search_type == 'description')
+      @tweets = Tweet.search(query)
+    elsif(search_type == 'hashtag')
+      @tweets = Tweet.search_by_hashtag(query)
+    else
+      @tweets = User.search_by_user(query)
+    end
+  end
+
   private
   def tweet_params
-    params.permit(:description)
+    params.permit(:description, :hashtag_list)
   end
 
   def set_tweet
