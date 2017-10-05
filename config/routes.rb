@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
-  
 
-  devise_scope :user do
-    unauthenticated do
-      root to: 'devise/sessions#new'
-    end
-  end
+  root 'tweets#index'
 
   devise_for :users
   resources :users do
@@ -14,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'tweets#index'
+
   resources :tweets, only: [:index, :new, :create]
   resources :profile, only: [:show]
 
