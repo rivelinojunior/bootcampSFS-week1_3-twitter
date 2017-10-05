@@ -23,4 +23,8 @@ class Tweet < ApplicationRecord
     user_ids << user.id
     Tweet.where(user_id: user_ids).order(created_at: :desc)
   end
+
+  def self.search(search_text)
+    where(description: search_text)
+  end
 end
