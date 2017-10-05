@@ -27,3 +27,18 @@ nav ul a.dropdown-button:hover {
 .dropdown-content li > a, .dropdown-content li > span {
   color: $blue_light;
 }
+
+#search {
+  background-color: $white;
+  color: $dark_grey;
+  width: 130px;
+  border-radius: 50px;
+  border: none;
+  padding-left: 10px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+#search:focus {
+  width: 100%;
+}
