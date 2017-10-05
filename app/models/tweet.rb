@@ -9,6 +9,14 @@ class Tweet < ApplicationRecord
 
   validates :description, presence: true, length: {maximum: 280}
 
+  def like(user_id)
+    self.likes.create user_id: user_id
+  end
+
+  def self.dislike(like_id)
+    Like.destroy like_id
+  end
+
   def self.get_timeline(user_id)
     user = User.find_by(id: user_id)
     user_ids = user.following.ids
