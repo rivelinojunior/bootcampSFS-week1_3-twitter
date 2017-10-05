@@ -49,7 +49,7 @@ class TweetsController < ApplicationController
 
   private
   def tweet_params
-    params.require(:tweet).permit(:description)
+    params.permit(:description)
   end
 
   def set_tweet
