@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   root 'tweets#index'
   resources :tweets, only: [:index, :new, :create]
   resources :profile, only: [:show]
+
+  put 'tweets/like/:id' => 'tweets#like'
 end

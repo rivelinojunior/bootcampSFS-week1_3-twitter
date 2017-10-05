@@ -31,10 +31,21 @@ class TweetsController < ApplicationController
     end
   end
 
+  def like
+    if @tweet.like current_user.id
+      render json: true, status: :ok
+    else
+      render json: false, status: :unprocessable_entity
+    end
+  end
 
   private
   def tweet_params
     params.require(:tweet).permit(:description)
+  end
+
+  def set_tweet
+    @tweet = Tweet.find_by params[:id]
   end
 
 end
