@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171005051022) do
+ActiveRecord::Schema.define(version: 20171005060315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20171005051022) do
     t.integer  "tweet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["tweet_id", "user_id"], name: "index_likes_on_tweet_id_and_user_id", unique: true, using: :btree
     t.index ["tweet_id"], name: "index_likes_on_tweet_id", using: :btree
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
