@@ -9,7 +9,7 @@
       <li class="tab col s3"><a class="active" href="#tweets">Tweets (<%= @user.tweets.count %>)</a></li>
       <li class="tab col s3"><a href="#following">Following (<%= @user.following.count %>)</a></li>
       <li class="tab col s3"><a href="#followers">Followers (<%= @user.followers.count %>)</a></li>
-      <li class="tab col s3"><a href="#likes">Likes (0)</a></li>
+      <li class="tab col s3"><a href="#likes">Likes (<%= @user.liked_tweets.count %>)</a></li>
     </ul>
     <div id="tweets" class="col s12">
       <ul>
@@ -32,6 +32,12 @@
         <% end %>
       </ul>
     </div>
-    <div id="likes" class="col s12">My tweets likeds</div>
+    <div id="likes" class="col s12">
+      <ul>
+        <% @user.liked_tweets.each do |tweet| %>
+            <li><%= tweet.description %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
