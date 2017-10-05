@@ -1,27 +1,23 @@
 <nav class="main-nav">
   <div class="nav-wrapper">
     <div class="container">
+      <%= link_to image_tag('logo.svg', class:"logo"), root_path, class: "brand-logo center valign-wrapper" %>
 
-      <a href="#" class="brand-logo center valign-wrapper"><%= image_tag 'logo.svg', class:"logo" %></a>
       <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
         <i class="material-icons">menu</i>
       </a>
-      
+
       <ul class="left hide-on-med-and-down">
-        <li><%= link_to 'Home', root_path %></li>              
-        <li><a href="#">Menu 2</a></li>
-        <li><a href="#">Menu 3</a></li>
+        <li><%= link_to 'Home', root_path %></li>
       </ul>
-      
+
       <ul class="side-nav" id="nav-mobile">
         <li><%= link_to 'Home', root_path %></li>
-        <li><a href="#">Menu 2</a></li>
-        <li><a href="#">Menu 3</a></li>
       </ul>
-      
+
       <ul class="right">
         <!-- Dropdown Trigger -->
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">User Avatar<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= gravatar_image_tag current_user.email, class: "avatar-nav circle" %><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
     </div>
   </div>
@@ -29,7 +25,7 @@
 
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-  <li><%= link_to 'Add New Tweet', tweets_new_path %></li>
+  <li><%= link_to 'Add New Tweet', new_tweet_path %></li>
   <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
   <li class="divider"></li>
   <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
