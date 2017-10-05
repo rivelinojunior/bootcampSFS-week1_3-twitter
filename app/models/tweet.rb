@@ -9,6 +9,8 @@ class Tweet < ApplicationRecord
 
   validates :description, presence: true, length: {maximum: 280}
 
+  acts_as_taggable_on :hashtags
+
   def like(user_id)
     self.likes.create user_id: user_id
   end
@@ -22,5 +24,13 @@ class Tweet < ApplicationRecord
     user_ids = user.following.ids
     user_ids << user.id
     Tweet.where(user_id: user_ids).order(created_at: :desc)
+  end
+
+  def self.search(search_text)
+    where("description LIKE lower(?)", "%#{search_text.downcase}%").order(created_at: :desc)
+  end
+
+  def self.search_by_hashtag(hashtag)
+    self.tagged_with(hashtag).order(created_at: :desc)
   end
 end

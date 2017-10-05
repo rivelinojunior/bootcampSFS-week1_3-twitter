@@ -20,4 +20,5 @@ Rails.application.routes.draw do
 
   put 'tweets/like/:id' => 'tweets#like'
   delete 'tweets/dislike/:id' => 'tweets#dislike'
+  get 'tweets/search' => 'tweets#search'
 end

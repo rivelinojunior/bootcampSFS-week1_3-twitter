@@ -28,4 +28,8 @@ class User < ActiveRecord::Base
     following.include?(other)
 
   end
+
+  def self.search_by_user(username)
+    find_by(username: username).tweets
+  end
 end
