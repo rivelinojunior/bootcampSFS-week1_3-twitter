@@ -39,6 +39,14 @@ class TweetsController < ApplicationController
     end
   end
 
+  def dislike
+    if Tweet.dislike params[:id]
+      render json: true, status: :ok
+    else
+      render json: false, status: :unprocessable_entity
+    end
+  end
+
   private
   def tweet_params
     params.require(:tweet).permit(:description)
