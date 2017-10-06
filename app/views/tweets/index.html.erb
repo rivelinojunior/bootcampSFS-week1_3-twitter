@@ -20,28 +20,22 @@
 
         <div class="card-tabs">
           <ul class="tabs center">
-            <li class="tab"><a class="active" href="#tweets">Tweets <p class="text-center"><%= current_user.tweets.count %></p></a></li>
-            <li class="tab"><a href="#following">Following <p class="text-center"><%= current_user.following.count %></p></a></li>
-            <li class="tab"><a href="#followers">Followers <p class="text-center"><%= current_user.followers.count %></p></a></li>
-            <li class="tab"><a href="#likes">Likes <p class="text-center"><%= current_user.liked_tweets.count %></p></a></li>
+            <li class="tab">
+              <a class="active" href="#tweets">Tweets <p class="text-center"><%= @tweets.count %></p></a>
+            </li>
+            <li class="tab">
+              <a href="#following">Following <p class="text-center"><%= current_user.following.count %></p></a></li>
+            <li class="tab">
+              <a href="#followers">Followers <p class="text-center"><%= current_user.followers.count %></p></a></li>
+            <li class="tab"><a href="#likes">Likes <p class="text-center"><%= current_user.liked_tweets.count %></p></a>
+            </li>
           </ul>
         </div>
         <div class="card-content tweets-card-content">
-          <div id="tweets">
-            <ul class="collection">
-              <% @tweets.each do |tweet| %>
-                  <li class="collection-item avatar">
-                    <%= gravatar_image_tag current_user.email, class: "circle" %>
-                    <span class="title">@<%= current_user.username %></span>
-                    <p><%= tweet.description %></p>
-                    <p><a href="#!" class="secondary-content"><i class="material-icons">favorite_border</i></a></p>
-                  </li>
-              <% end %>
-            </ul>
-          </div>
-          <div id="following">Following 2</div>
-          <div id="followers">Followers 3</div>
-          <div id="likes">Likes</div>
+          <%= render partial: 'tweets' %>
+          <%= render partial: 'following' %>
+          <%= render partial: 'followers' %>
+          <%= render partial: 'likes' %>
         </div>
       </div>
 
