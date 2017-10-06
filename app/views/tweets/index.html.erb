@@ -8,7 +8,7 @@
         <div class="row center">
           <p class="profile-name"><%= current_user.full_name %></p>
           <p>@<%= current_user.username %></p>
-          <a class="btn halfway-fab waves-effect waves-light modal-trigger" href="#modal1">Tweet</a>
+          <%= link_to 'Tweet', new_tweet_path, class: "btn halfway-fab waves-effect waves-light modal-trigger" %>
         </div>
       </div>
     </div>
