@@ -1,7 +1,28 @@
+<!-- Modal Trigger -->
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Tweet</a>
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="center-align modal-content">
+    <h4>Compose your tweet</h4>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="main-text-area input-field col s12">
+            <textarea id="image_description" type="text" class="tweet-textarea" placeholder="What's happening?"></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="center-btn">
+    <a href="" class="waves-effect waves-light btn">Tweet</a>
+  </div>
+</div>
+
 <div class="container">
   <ul>
     <% @tweets.each do |tweet| %>
-        <li><%= tweet.description %></li>
+    <li><%= tweet.description %></li>
     <% end %>
   </ul>
 </div>
