@@ -1,8 +1,11 @@
 
 .card-user{
-    margin-top: 19px;
     background-color: $background;
     box-shadow: none;  
+
+  .card-content {
+    padding-top: 0px;
+  }
 }
 
 .card .card-content p {
