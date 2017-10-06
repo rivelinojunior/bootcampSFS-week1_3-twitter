@@ -15,14 +15,15 @@
   </div>
 
   <div class="col s12 m6">
-    <div class="card">
+    <div class="card card-twitter">
       <div class="card-content">
 
         <div class="card-tabs">
-          <ul class="tabs tabs-fixed-width">
-            <li class="tab"><a class="active" href="#tweets">Tweets (<%= current_user.tweets.count %>)</a></li>
-            <li class="tab"><a href="#following">Following (<%= current_user.following.count %>)</a></li>
-            <li class="tab"><a href="#followers">Followers <%= current_user.followers.count %>)</a></li>
+          <ul class="tabs center">
+            <li class="tab"><a class="active" href="#tweets">Tweets <p class="text-center"><%= current_user.tweets.count %></p></a></li>
+            <li class="tab"><a href="#following">Following <p class="text-center"><%= current_user.following.count %></p></a></li>
+            <li class="tab"><a href="#followers">Followers <p class="text-center"><%= current_user.followers.count %></p></a></li>
+            <li class="tab"><a href="#likes">Likes <p class="text-center"><%= current_user.liked_tweets.count %></p></a></li>
           </ul>
         </div>
         <div class="card-content tweets-card-content">
@@ -38,12 +39,13 @@
               <% end %>
             </ul>
           </div>
-          <div id="following">Test 2</div>
-          <div id="followers">Test 3</div>
+          <div id="following">Following 2</div>
+          <div id="followers">Followers 3</div>
+          <div id="likes">Likes</div>
         </div>
       </div>
 
-      <div class="card-action">
+      <div style="display: none" class="card-action">
         <a href="#">Carregar mais</a>
       </div>
     </div>
