@@ -41,33 +41,6 @@
     }
   }
 
-  .tweets-card-content {
-
-    .item-tweet {
-      margin-left: 40px;
-      margin-bottom: 20px;
-
-      .username {
-        margin-left: 30px;
-        color: rgba(0, 0, 0, 0.7);
-      }
-
-      .circle {
-        position: absolute;
-        left: 55px !important;
-      }
-
-      p {
-        width: 95%;
-      }
-    }
-  }
-
-  .following {
-    .card-image {
-      img {
-        height: 70px;
-      }
-    }
-  }
+  @import "collection-tweets";
+  @import "relationships";
 }
