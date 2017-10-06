@@ -24,9 +24,10 @@
         <!-- Dropdown Trigger -->
         <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= gravatar_image_tag current_user.email, class: "avatar-nav circle" %><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
-      <form class="right search-form hide-on-med-and-down">
-        <input type="text" name="search" placeholder="Search.." id="search">
-      </form>
+      <%= form_tag(tweets_search_path, method: :get, enforce_utf8: false, class: 'right search-form hide-on-med-and-down') do %>
+        <input type="hidden" name="type" value="description">
+        <input type="text" name="q" placeholder="Search.." id="search">
+      <% end %>
     </div>
   </div>
 </nav>

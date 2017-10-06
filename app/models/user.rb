@@ -30,6 +30,12 @@ class User < ActiveRecord::Base
   end
 
   def self.search_by_user(username)
-    find_by(username: username).tweets
+    user = find_by(username: username)
+
+    if user
+      user.tweets
+    else
+      nil
+    end
   end
 end
