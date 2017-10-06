@@ -33,4 +33,10 @@ class Tweet < ApplicationRecord
   def self.search_by_hashtag(hashtag)
     self.tagged_with(hashtag).order(created_at: :desc)
   end
+
+  def save_with_hashtag
+    self.hashtag_list = self.description.scan(/#\w+/)
+
+    self.save
+  end
 end
