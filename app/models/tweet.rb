@@ -35,7 +35,7 @@ class Tweet < ApplicationRecord
   end
 
   def save_with_hashtag
-    self.hashtag_list = self.description.scan(/#\w+/)
+    self.hashtag_list = self.description.scan(/#\w+/).map { |item| item.gsub('#', '') } 
 
     self.save
   end
