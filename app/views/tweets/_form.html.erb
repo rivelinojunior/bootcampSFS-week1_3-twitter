@@ -1,0 +1,6 @@
+<%= form_for(@tweet) do |f| %>
+    <div class="main-text-area input-field col s12">
+      <%= f.text_area :description, id: "image_description", class: "tweet-textarea", placeholder: "What's happening?" %>
+    </div>
+    <%= f.submit "Tweet", class: "waves-effect waves-light btn" %>
+<% end %>
