@@ -4,10 +4,12 @@
       <div class="card-content">
         <div class="row">
           <%= gravatar_image_tag current_user.email, class: "profile-pic circle" %>
-          <a class="btn-floating halfway-fab waves-effect waves-light" href="#modal1"><i class="material-icons">add</i></a>
         </div>
-        <p><%= current_user.email %></p>
-        <p>@<%= current_user.username %></p>
+        <div class="row">
+          <p><%= current_user.full_name %></p>
+          <p>@<%= current_user.username %></p>
+          <a class="btn halfway-fab waves-effect waves-light modal-trigger" href="#modal1">Tweet</a>
+        </div>
       </div>
     </div>
   </div>
@@ -82,6 +84,4 @@
     <a href="" class="waves-effect waves-light btn">Tweet</a>
   </div>
 </div>
-
-
   

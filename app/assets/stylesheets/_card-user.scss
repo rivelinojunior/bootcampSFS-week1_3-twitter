@@ -1,6 +1,12 @@
 
 .card-user{
     margin-top: 19px;
+    background-color: $background;
+    box-shadow: none;  
+}
+
+.card .card-content p {
+    color: $dark_blue;  
 }
 
 .card-content .profile-pic{
@@ -11,6 +17,6 @@
     width: 120px;
 }
 
-.profile-pic > img {
+.profile-pic {
     border: 2px solid $white;
   }
