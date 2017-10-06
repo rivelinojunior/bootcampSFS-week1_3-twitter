@@ -1,0 +1,47 @@
+.modal {
+  height: 100%;
+  width: 31%;
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+  background-color: #FFFBF5;
+  border-radius: 6px;
+  position: relative;
+  background-clip: padding-box;
+}
+
+.modal-form-row {
+  margin-bottom: 0px;
+}
+
+.main-text-area{
+  width: 100%;
+  margin-left: 0%;
+  left: auto;
+  right: auto;
+  padding: 0px 0px;
+}
+
+.tweet-textarea{
+  position: relative;
+  resize: none;
+  width: 90%;
+  height: 160px;
+  border-color: #99CDE1;
+  border-style: solid;
+  border-radius: 15px;
+  background-color: #fafafa;
+}
+
+
+.modal-footer{
+  margin-top: -40px;
+  padding-bottom: 50px;
+  background-color: #FFFBF5; /*review*/
+}
+
+.center-btn {
+  margin-top: -11%;
+  text-align: center;
+  margin-bottom: 2%;
+  padding: 3%;
+}
