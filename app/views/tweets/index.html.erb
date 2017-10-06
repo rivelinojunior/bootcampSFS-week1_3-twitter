@@ -5,8 +5,8 @@
         <div class="row">
           <%= gravatar_image_tag current_user.email, class: "profile-pic circle" %>
         </div>
-        <div class="row">
-          <p><%= current_user.full_name %></p>
+        <div class="row center">
+          <p class="profile-name"><%= current_user.full_name %></p>
           <p>@<%= current_user.username %></p>
           <a class="btn halfway-fab waves-effect waves-light modal-trigger" href="#modal1">Tweet</a>
         </div>
