@@ -1,0 +1,16 @@
+
+.card-user{
+    margin-top: 19px;
+}
+
+.card-content .profile-pic{
+    margin-left: 2em;
+    z-index: 1;
+    position: relative;
+    height: 120px;
+    width: 120px;
+}
+
+.profile-pic > img {
+    border: 2px solid $white;
+  }
