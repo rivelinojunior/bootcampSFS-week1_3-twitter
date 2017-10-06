@@ -5,10 +5,10 @@
         <div class="row">
           <%= gravatar_image_tag current_user.email, class: "profile-pic circle" %>
         </div>
-        <div class="row center">
+        <div class="row">
           <p><%= current_user.full_name %></p>
           <p>@<%= current_user.username %></p>
-          <a class="btn halfway-fab waves-effect waves-light" href="#modal1">Tweet</a>
+          <a class="btn halfway-fab waves-effect waves-light modal-trigger" href="#modal1">Tweet</a>
         </div>
       </div>
     </div>
@@ -84,12 +84,4 @@
     <a href="" class="waves-effect waves-light btn">Tweet</a>
   </div>
 </div>
-
-<script>
-   $(document).ready(function(){
-    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
-    $('#modal1').modal();
-  });
-</script>
-
   
