@@ -2,3 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.card-twitter {
+
+  .card-content {
+    padding: 0px;
+  }
+
+  .tabs {
+    padding-top: 20px;
+    height: 80px;
+
+    .tab {
+      line-height: 20px;
+      text-transform: none !important;
+
+      a {
+        color: rgba(0, 0, 0, 0.7);
+        p {
+          color: rgba(0, 0, 0, 0.7);
+        }
+
+        &.active {
+          color: rgba(0, 0, 0, 1);
+          p {
+            color: rgba(0, 0, 0, 1);
+          }
+        }
+
+        &:hover {
+          color: rgba(0, 0, 0, 1);
+        }
+      }
+    }
+
+    .indicator {
+      display: none;
+    }
+  }
+
+}
