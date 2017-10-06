@@ -1,22 +1,21 @@
-
 <div class="row">
   <div class="col m3 hide-on-small-only">
     <div class="card card-user">
       <div class="card-content">
         <div class="row">
-           <%= gravatar_image_tag current_user.email, class: "profile-pic circle" %>
-            <a class="btn-floating halfway-fab waves-effect waves-light"><i class="material-icons">add</i></a>
+          <%= gravatar_image_tag current_user.email, class: "profile-pic circle" %>
+          <a class="btn-floating halfway-fab waves-effect waves-light" href="#modal1"><i class="material-icons">add</i></a>
         </div>
         <p><%= current_user.email %></p>
         <p>@<%= current_user.username %></p>
       </div>
     </div>
   </div>
-  
+
   <div class="col s12 m6">
     <div class="card">
       <div class="card-content">
-        
+
         <div class="card-tabs">
           <ul class="tabs tabs-fixed-width">
             <li class="tab"><a class="active" href="#tweets">Tweets (<%= current_user.tweets.count %>)</a></li>
@@ -28,12 +27,12 @@
           <div id="tweets">
             <ul class="collection">
               <% @tweets.each do |tweet| %>
-              <li class="collection-item avatar">
-                <%= gravatar_image_tag current_user.email, class: "circle" %>
-                <span class="title">@<%= current_user.username %></span>
-                <p><%= tweet.description %></p>
-                <p><a href="#!" class="secondary-content"><i class="material-icons">favorite_border</i></a></p>
-              </li>
+                  <li class="collection-item avatar">
+                    <%= gravatar_image_tag current_user.email, class: "circle" %>
+                    <span class="title">@<%= current_user.username %></span>
+                    <p><%= tweet.description %></p>
+                    <p><a href="#!" class="secondary-content"><i class="material-icons">favorite_border</i></a></p>
+                  </li>
               <% end %>
             </ul>
           </div>
@@ -41,7 +40,7 @@
           <div id="followers">Test 3</div>
         </div>
       </div>
-            
+
       <div class="card-action">
         <a href="#">Carregar mais</a>
       </div>
@@ -57,16 +56,32 @@
           I am convenient because I require little markup to use effectively.
         </p>
       </div>
-            
+
       <div class="card-action">
         <a href="#">This is a link</a>
       </div>
-    </div> 
+    </div>
   </div>
 
-  
-
+</div>
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="center-align modal-content">
+    <h4>Compose your tweet</h4>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="main-text-area input-field col s12">
+            <textarea id="image_description" type="text" class="tweet-textarea" placeholder="What's happening?"></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="center-btn">
+    <a href="" class="waves-effect waves-light btn">Tweet</a>
   </div>
 </div>
-  
+
+
   

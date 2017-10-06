@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>TwitterClone</title>
-    <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Roboto:400,700' %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> 
-  </head>
+<head>
+  <title>Twitter Clone - Team #3</title>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Roboto:400,700' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    
-    <%= render partial: 'shared/navbar' %>
+<body>
 
-    <div class="container" >
-    <%= yield %>
-    </div>
+<%= render partial: 'shared/navbar' %>
 
-    <!-- Sidebar script -->
-    <script>
-      $( document ).ready(function(){
+<div class="container">
+  <%= yield %>
+</div>
+
+<!-- Sidebar script -->
+<script>
+    $(document).ready(function () {
         $(".button-collapse").sideNav();
-      });
-    </script>
+        $('.modal').modal();
+    });
+</script>
 
-  </body>
+</body>
 </html>
