@@ -10,12 +10,10 @@ class TweetsController < ApplicationController
   end
 
   def create
-    @tweet = Tweet.new(tweet_params)
-
+    @tweet = current_user.tweets.new(tweet_params)
     respond_to do |format|
-      if @tweet.save_with_hashtag
-        format.html { redirect_to @tweet, notice: 'Your tweet has been posted!' }
-        format.json { render :show , status: :created, location: @tweet}
+      if @tweet.save!
+        format.html { redirect_to root_path, notice: 'Tweet was successfully created.' }
       else
         format.html { render :new}
         format.json { render json: @tweet.errors, status: :unprocessable_entity }
@@ -62,7 +60,7 @@ class TweetsController < ApplicationController
 
   private
   def tweet_params
-    params.permit(:description, :hashtag_list)
+    params.require(:tweet).permit(:description, :hashtag_list)
   end
 
   def set_tweet
