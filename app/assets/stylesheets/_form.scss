@@ -42,6 +42,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   background: $blue_btn;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  border-radius: 50px;
 }
 
 .btn-block {
