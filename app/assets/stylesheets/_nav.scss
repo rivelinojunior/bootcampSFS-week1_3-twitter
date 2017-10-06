@@ -4,6 +4,7 @@
 
 .side-nav {
   background-color: $blue_light;
+  padding-top: 1rem;
 }
 
 .side-nav li > a {
@@ -14,6 +15,7 @@
   width: 50px;
   height: 50px;
   margin-top: 8px;
+  border: 2px solid $white;
 }
 
 nav ul a.dropdown-button:hover {
@@ -37,6 +39,7 @@ nav ul a.dropdown-button:hover {
   padding-left: 10px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
+  margin-right: 10px;
 }
 
 #search:focus {

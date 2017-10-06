@@ -11,15 +11,20 @@
         <li><%= link_to 'Home', root_path %></li>
       </ul>
 
-      <ul class="side-nav" id="nav-mobile">
+      <ul class="side-nav center" id="nav-mobile">
+        <!-- Dropdown Trigger -->
+        <li class=""><%= gravatar_image_tag current_user.email, class: "avatar-nav circle" %></li>
         <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Add New Tweet', new_tweet_path %></li>
+        <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
       </ul>
 
-      <ul class="right">
+      <ul class="right hide-on-med-and-down">
         <!-- Dropdown Trigger -->
         <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= gravatar_image_tag current_user.email, class: "avatar-nav circle" %><i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
-      <form class="right search-form">
+      <form class="right search-form hide-on-med-and-down">
         <input type="text" name="search" placeholder="Search.." id="search">
       </form>
     </div>
