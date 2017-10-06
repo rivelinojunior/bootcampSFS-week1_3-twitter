@@ -13,7 +13,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
 
     respond_to do |format|
-      if @tweet.save
+      if @tweet.save_with_hashtag
         format.html { redirect_to @tweet, notice: 'Your tweet has been posted!' }
         format.json { render :show , status: :created, location: @tweet}
       else
