@@ -5,6 +5,7 @@
 
 .side-nav {
   background-color: $blue_light;
+  padding-top: 1rem;
 }
 
 .side-nav li > a {
@@ -12,12 +13,10 @@
 }
 
 .avatar-nav {
-  position: absolute;
-  display: inline-block;
-  width: 35px;
-  height: 35px;
-  border: 1px solid $white;
-  margin: 15px 0 0 0;
+  width: 50px;
+  height: 50px;
+  margin-top: 8px;
+  border: 2px solid $white;
 }
 
 nav ul a.dropdown-button:hover {
@@ -30,5 +29,20 @@ nav ul a.dropdown-button:hover {
 
 .dropdown-content li > a, .dropdown-content li > span {
   color: $blue_light;
-  line-height: 20px;
+}
+
+#search {
+  background-color: $white;
+  color: $dark_grey;
+  width: 130px;
+  border-radius: 50px;
+  border: none;
+  padding-left: 10px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  margin-right: 10px;
+}
+
+#search:focus {
+  width: 100%;
 }

@@ -11,13 +11,16 @@
         <li><%= link_to 'Home', root_path %></li>
       </ul>
 
-      <ul class="side-nav" id="nav-mobile">
+      <ul class="side-nav center" id="nav-mobile">
+        <!-- Dropdown Trigger -->
+        <li class=""><%= gravatar_image_tag current_user.email, class: "avatar-nav circle" %></li>
         <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Add New Tweet', new_tweet_path %></li>
+        <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
       </ul>
 
-      
-
-      <ul class="right">
+      <ul class="right hide-on-med-and-down">
         <!-- Dropdown Trigger -->
         <li>
           <a class="dropdown-button" href="#!" data-activates="dropdown1">
@@ -25,6 +28,10 @@
           </a>
         </li>
       </ul>
+      <%= form_tag(tweets_search_path, method: :get, enforce_utf8: false, class: 'right search-form hide-on-med-and-down') do %>
+        <input type="hidden" name="type" value="description">
+        <input type="text" name="q" placeholder="Search.." id="search">
+      <% end %>
     </div>
   </div>
 </nav>

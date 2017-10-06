@@ -1,7 +1,11 @@
 <div class="container">
   <ul>
-    <% @tweets.each do |tweet| %>
-        <li><%= tweet.description %></li>
+    <% if @tweets %>
+      <% @tweets.each do |tweet| %>
+          <li><%= tweet.description %></li>
+      <% end %>
+    <% else %>
+      <h2>Nenhum registro localizado</h2>
     <% end %>
   </ul>
 </div>
