@@ -15,9 +15,15 @@
         <li><%= link_to 'Home', root_path %></li>
       </ul>
 
+      
+
       <ul class="right">
         <!-- Dropdown Trigger -->
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= gravatar_image_tag current_user.email, class: "avatar-nav circle" %><i class="material-icons right">arrow_drop_down</i></a></li>
+        <li>
+          <a class="dropdown-button" href="#!" data-activates="dropdown1">
+            <%= gravatar_image_tag current_user.email, class: "avatar-nav circle" %>
+          </a>
+        </li>
       </ul>
     </div>
   </div>
