@@ -22,7 +22,11 @@
 
       <ul class="right hide-on-med-and-down">
         <!-- Dropdown Trigger -->
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= gravatar_image_tag current_user.email, class: "avatar-nav circle" %><i class="material-icons right">arrow_drop_down</i></a></li>
+        <li>
+          <a class="dropdown-button" href="#!" data-activates="dropdown1">
+            <%= gravatar_image_tag current_user.email, class: "avatar-nav circle" %>
+          </a>
+        </li>
       </ul>
       <%= form_tag(tweets_search_path, method: :get, enforce_utf8: false, class: 'right search-form hide-on-med-and-down') do %>
         <input type="hidden" name="type" value="description">

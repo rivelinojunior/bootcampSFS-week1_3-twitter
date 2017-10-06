@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>TwitterClone</title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Roboto:400,700' %>
@@ -13,7 +13,9 @@
     
     <%= render partial: 'shared/navbar' %>
 
+    <div class="container" >
     <%= yield %>
+    </div>
 
     <!-- Sidebar script -->
     <script>
