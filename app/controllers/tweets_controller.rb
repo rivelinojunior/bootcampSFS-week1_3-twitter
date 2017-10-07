@@ -50,7 +50,7 @@ class TweetsController < ApplicationController
     
     @tweets = Tweet.search(query)
     @users = User.search_by_user(query)
-
+    @hashtags = Tweet.tag_counts_on(:hashtags)
   end
 
   private
