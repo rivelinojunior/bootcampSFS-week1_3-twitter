@@ -1,35 +1,35 @@
 <div id="<%= tab_id %>">
   <% if tweets.any? %>
-  <ul class="collection">
-    <% tweets.each do |tweet| %>
-        <li class="collection-item avatar">
-          <div class="item-tweet">
-            <%= gravatar_image_tag tweet.user.email, class: "circle" %>
-            <span class="title"><%= tweet.user.full_name %></span>
-            <span class="username">@<%= tweet.user.username %></span>
+    <ul class="collection">
+      <% tweets.each do |tweet| %>
+          <li class="collection-item avatar">
+            <div class="item-tweet">
+              <%= gravatar_image_tag tweet.user.email, class: "circle" %>
+              <span class="title"><%= tweet.user.full_name %></span>
+              <span class="username">@<%= tweet.user.username %></span>
 
-            <p><%= tweet.description %></p>
-            <p>
-              <% if tweet.didilike? current_user.id %>
-                  <%= link_to dislike_path_url(id: tweet.id), method: :delete, class: "secondary-content" do %>
-                      <i class="material-icons">favorite</i>
-                      <span class="count-likes center "><%= tweet.liked_users.count %></span>
-                  <% end %>
-              <% else %>
-                  <%= link_to like_path_url(id: tweet.id), method: :put, class: "secondary-content" do %>
-                      <i class="material-icons">favorite_border</i>
-                      <span class="count-likes center"><%= tweet.liked_users.count %></span>
-                  <% end %>
-              <% end %>
-            </p>
-          </div>
-        </li>
-    <% end %>
-  </ul>
+              <p><%= tweet.description %></p>
+              <p>
+                <% if tweet.didilike? current_user.id %>
+                    <%= link_to dislike_path_url(id: tweet.id), method: :delete, class: "secondary-content" do %>
+                        <i class="material-icons">favorite</i>
+                        <span class="count-likes center "><%= tweet.liked_users.count %></span>
+                    <% end %>
+                <% else %>
+                    <%= link_to like_path_url(id: tweet.id), method: :put, class: "secondary-content" do %>
+                        <i class="material-icons">favorite_border</i>
+                        <span class="count-likes center"><%= tweet.liked_users.count %></span>
+                    <% end %>
+                <% end %>
+              </p>
+            </div>
+          </li>
+      <% end %>
+    </ul>
   <% else %>
     <div class="empty-collection center">
-      <p>Você ainda não tem nenhum tweet</p>
-      <p>Começe por aqui:</p>
+      <p>You don't have any tweets</p>
+      <p>Start here:</p>
       <%= link_to 'Tweet', new_tweet_path, class: "btn halfway-fab waves-effect waves-light modal-trigger" %>
     </div>
   <% end%>
