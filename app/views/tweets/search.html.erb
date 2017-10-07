@@ -29,7 +29,7 @@
           </ul>
         </div>
         <div class="card-content tweets-card-content">
-          <%= render partial: 'tweets' %>
+          <%= render 'tweets', tweets: @tweets %>
           <%= render partial: 'users', locals: { users: @users, div_id: 'users' }%>
         </div>
       </div>

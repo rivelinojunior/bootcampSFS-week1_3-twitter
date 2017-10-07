@@ -2,6 +2,7 @@ class ProfileController < ApplicationController
   before_action :set_user, only: [:show]
 
   def show
+    @hashtags = Tweet.tag_counts_on(:hashtags)
   end
 
   private

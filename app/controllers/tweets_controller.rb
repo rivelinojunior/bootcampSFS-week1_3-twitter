@@ -4,6 +4,7 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.timeline current_user.id
+    @hashtags = Tweet.tag_counts_on(:hashtags)
   end
 
   def new
@@ -13,7 +14,7 @@ class TweetsController < ApplicationController
   def create
     @tweet = current_user.tweets.new(tweet_params)
     respond_to do |format|
-      if @tweet.save!
+      if @tweet.save_with_hashtag
         format.html {redirect_to root_path, notice: 'Tweet was successfully created.'}
       else
         format.html {render :new}
