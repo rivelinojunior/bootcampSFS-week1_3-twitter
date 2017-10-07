@@ -32,7 +32,7 @@ class Tweet < ApplicationRecord
 
   def self.search(search_text)
     hashtags = self.search_by_hashtag(search_text)
-    description_search = where("description LIKE lower(?)", "%#{search_text.downcase}%").order(created_at: :desc)
+    description_search = where("description ~* ?", "#{search_text}").order(created_at: :desc)
     return description_search + hashtags
   end
 
