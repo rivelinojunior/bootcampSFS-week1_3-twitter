@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  before_action :set_tweet, only: [:like, :dislike, :destroy]
   before_action :authenticate_user!
 
   def index
@@ -13,10 +14,10 @@ class TweetsController < ApplicationController
     @tweet = current_user.tweets.new(tweet_params)
     respond_to do |format|
       if @tweet.save!
-        format.html { redirect_to root_path, notice: 'Tweet was successfully created.' }
+        format.html {redirect_to root_path, notice: 'Tweet was successfully created.'}
       else
-        format.html { render :new}
-        format.json { render json: @tweet.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @tweet.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -24,34 +25,34 @@ class TweetsController < ApplicationController
   def destroy
     @tweet.destroy
     respond_to do |format|
-      format.html { redirect_to todo_items_url, notice: 'Your tweet has been destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to root_path, notice: 'Your tweet has been destroyed.'}
+      format.json {head :no_content}
     end
   end
 
   def like
-    if @tweet.like current_user.id
-      render json: true, status: :ok
-    else
-      render json: false, status: :unprocessable_entity
+    @tweet.like current_user.id
+    respond_to do |format|
+      format.html {redirect_to root_path, notice: 'Tweet was like.'}
+      format.json {head :no_content}
     end
   end
 
   def dislike
-    if Tweet.dislike params[:id]
-      render json: true, status: :ok
-    else
-      render json: false, status: :unprocessable_entity
+    @tweet.dislike current_user.id
+    respond_to do |format|
+      format.html {redirect_to root_path, notice: 'Tweet was dislike.'}
+      format.json {head :no_content}
     end
   end
 
   def search
     search_type = params[:type]
     query = params[:q]
-    
-    if(search_type == 'description')
+
+    if (search_type == 'description')
       @tweets = Tweet.search(query)
-    elsif(search_type == 'hashtag')
+    elsif (search_type == 'hashtag')
       @tweets = Tweet.search_by_hashtag(query)
     else
       @tweets = User.search_by_user(query)
@@ -64,7 +65,7 @@ class TweetsController < ApplicationController
   end
 
   def set_tweet
-    @tweet = Tweet.find_by params[:id]
+    @tweet = Tweet.find_by id: params[:id]
   end
 
 end
