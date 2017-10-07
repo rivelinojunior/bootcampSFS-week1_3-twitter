@@ -3,9 +3,15 @@
     <% tweets.each do |tweet| %>
         <li class="collection-item avatar">
           <div class="item-tweet">
-            <%= gravatar_image_tag tweet.user.email, class: "circle" %>
-            <span class="title"><%= tweet.user.full_name %></span>
-            <span class="username">@<%= tweet.user.username %></span>
+            <%= link_to profile_path(id: tweet.user.id) do %>
+                <%= gravatar_image_tag tweet.user.email, class: "circle" %>
+            <% end %>
+            <%= link_to profile_path(id: tweet.user.id) do %>
+                <span class="title"><%= tweet.user.full_name %></span>
+            <% end %>
+            <%= link_to profile_path(id: tweet.user.id) do %>
+                <span class="username">@<%= tweet.user.username %></span>
+            <% end %>
 
             <p><%= tweet.description %></p>
             <p>
