@@ -8,7 +8,17 @@
             <span class="username">@<%= tweet.user.username %></span>
 
             <p><%= tweet.description %></p>
-            <p><a href="#!" class="secondary-content"><i class="material-icons">favorite_border</i></a></p>
+            <p>
+              <% if tweet.didilike? current_user.id %>
+                  <%= link_to dislike_path_url(id: tweet.id), method: :delete, class: "secondary-content" do %>
+                      <i class="material-icons">favorite</i>
+                  <% end %>
+              <% else %>
+                  <%= link_to like_path_url(id: tweet.id), method: :put, class: "secondary-content" do %>
+                      <i class="material-icons">favorite_border</i>
+                  <% end %>
+              <% end %>
+            </p>
           </div>
         </li>
     <% end %>
