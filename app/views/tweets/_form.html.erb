@@ -2,5 +2,6 @@
     <div class="main-text-area input-field col s12">
       <%= f.text_area :description, id: "image_description", class: "tweet-textarea", placeholder: "What's happening?" %>
     </div>
-    <%= f.submit "Tweet", class: "waves-effect waves-light btn" %>
+    <div id="counter" class="right-align counter_component">280</div>
+    <%= f.submit "Tweet", id: "tweet_button" , class: "center-btn waves-effect waves-light btn" %>
 <% end %>
