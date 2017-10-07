@@ -17,7 +17,7 @@
 
       <ul class="side-nav center" id="nav-mobile">
         <!-- Dropdown Trigger -->
-        <li class=""><%= gravatar_image_tag current_user.email, class: "avatar-nav circle" %></li>
+        <li><%= gravatar_image_tag current_user.email, class: "avatar-nav circle" %></li>
         <li><%= link_to 'Home', root_path %></li>
         <li><%= link_to 'Tweet', new_tweet_path %></li>
         <li><%= link_to 'Profile', profile_path(id: current_user.id) %></li>
