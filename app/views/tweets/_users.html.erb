@@ -1,0 +1,21 @@
+<%= content_tag :div, class: div_id, id: div_id  do %>
+  <div class="row">
+    <div class="col s12 m4">
+      <% users.each do |user| %>
+        <div class="card">
+          <div class="card-image">
+            <%= gravatar_image_tag current_user.email%>
+            <span class="card-title">@<%= user.username %></span>
+          </div>
+          <div class="card-content">
+            <p><%= user.full_name %></p>
+          </div>
+          <div class="card-action">
+            <a href="#">Follow</a>
+          </div>
+        </div>
+      <% end %>
+      
+    </div>
+  </div>
+<% end %>
