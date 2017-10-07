@@ -1,43 +1,46 @@
 <div class="row">
-  <div class="col s2">
-    <%= gravatar_image_tag @user.email, class: "circle" %>
-    <p><%= @user.full_name %></p>
-    <p>@<%= @user.username %></p>
+  <div class="col m3 hide-on-small-only">
+    <div class="card card-user">
+      <div class="card-content">
+        <div class="row center">
+          <%= gravatar_image_tag @user.email, class: "profile-pic circle" %>
+        </div>
+        <div class="row center">
+          <p class="profile-name"><%= @user.full_name %></p>
+          <p>@<%= @user.username %></p>
+          <%= link_to 'Tweet', new_tweet_path, class: "btn halfway-fab waves-effect waves-light modal-trigger" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col s10">
-    <ul class="tabs">
-      <li class="tab col s3"><a class="active" href="#tweets">Tweets (<%= @user.tweets.count %>)</a></li>
-      <li class="tab col s3"><a href="#following">Following (<%= @user.following.count %>)</a></li>
-      <li class="tab col s3"><a href="#followers">Followers (<%= @user.followers.count %>)</a></li>
-      <li class="tab col s3"><a href="#likes">Likes (<%= @user.liked_tweets.count %>)</a></li>
-    </ul>
-    <div id="tweets" class="col s12">
-      <ul>
-        <% @user.tweets.each do |tweet| %>
-            <li><%= tweet.description %></li>
-        <% end %>
-      </ul>
-    </div>
-    <div id="following" class="col s12">
-      <ul>
-        <% @user.following.each do |user| %>
-            <li><%= user.full_name %></li>
-        <% end %>
-      </ul>
-    </div>
-    <div id="followers" class="col s12">
-      <ul>
-        <% @user.followers.each do |user| %>
-            <li><%= user.full_name %></li>
-        <% end %>
-      </ul>
-    </div>
-    <div id="likes" class="col s12">
-      <ul>
-        <% @user.liked_tweets.each do |tweet| %>
-            <li><%= tweet.description %></li>
-        <% end %>
-      </ul>
+  <div class="col s12 m6">
+    <div class="card card-twitter">
+      <div class="card-content">
+
+        <div class="card-tabs">
+          <ul class="tabs center">
+            <li class="tab">
+              <a class="active" href="#tweets">Tweets <p class="text-center"><%= @user.tweets.count %></p></a>
+            </li>
+            <li class="tab">
+              <a href="#following">Following <p class="text-center"><%= @user.following.count %></p></a></li>
+            <li class="tab">
+              <a href="#followers">Followers <p class="text-center"><%= @user.followers.count %></p></a></li>
+            <li class="tab"><a href="#likes">Likes <p class="text-center"><%= @user.liked_tweets.count %></p></a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-content tweets-card-content">
+          <%= render 'tweets/tweets', tweets: @user.tweets %>
+          <%= render 'tweets/following', following: @user.following %>
+          <%= render 'tweets/followers', followers: @user.followers %>
+          <%= render 'tweets/likes', tweets: @user.liked_tweets %>
+        </div>
+      </div>
+
+      <div style="display: none" class="card-action">
+        <a href="#">Carregar mais</a>
+      </div>
     </div>
   </div>
 </div>
