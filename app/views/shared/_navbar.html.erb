@@ -8,7 +8,11 @@
       </a>
 
       <ul class="left hide-on-med-and-down">
-        <li><%= link_to 'Home', root_path %></li>
+        <li>
+          <%= link_to root_path do %>
+            <i class="material-icons left">home</i>Home
+          <% end %>
+        </li>
       </ul>
 
       <ul class="side-nav center" id="nav-mobile">
@@ -24,7 +28,8 @@
         <!-- Dropdown Trigger -->
         <li>
           <a class="dropdown-button" href="#!" data-activates="dropdown1">
-            <%= gravatar_image_tag current_user.email, class: "avatar-nav circle" %>
+            <i class="material-icons right">arrow_drop_down</i><%= gravatar_image_tag current_user.email, class: "avatar-nav circle" %>
+            
           </a>
         </li>
       </ul>
