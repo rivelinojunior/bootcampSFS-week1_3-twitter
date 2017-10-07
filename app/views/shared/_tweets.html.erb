@@ -35,9 +35,11 @@
       </ul>
   <% else %>
       <div class="empty-collection center">
-        <p>You don't have any tweets</p>
-        <p>Start here:</p>
-        <%= link_to 'Tweet', new_tweet_path, class: "btn halfway-fab waves-effect waves-light modal-trigger" %>
+        <% if tab_id == "likes" %>
+            <p>No likes</p>
+        <% else %>
+            <p>No tweets</p>
+        <% end %>
       </div>
   <% end %>
 </div>
