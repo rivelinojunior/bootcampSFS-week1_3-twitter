@@ -34,7 +34,7 @@ class TweetsController < ApplicationController
   def like
     @tweet.like current_user.id
     respond_to do |format|
-      format.html {redirect_to root_path, notice: 'Tweet was like.'}
+      format.html {redirect_to :back, notice: 'Tweet was like.'}
       format.json {head :no_content}
     end
   end
@@ -42,7 +42,7 @@ class TweetsController < ApplicationController
   def dislike
     @tweet.dislike current_user.id
     respond_to do |format|
-      format.html {redirect_to root_path, notice: 'Tweet was dislike.'}
+      format.html {redirect_to :back, notice: 'Tweet was dislike.'}
       format.json {head :no_content}
     end
   end
