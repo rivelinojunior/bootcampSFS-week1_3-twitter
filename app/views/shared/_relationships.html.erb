@@ -10,8 +10,13 @@
                 <%= gravatar_image_tag user.email, class: "circle avatar float-avatar" %>
             <% end %>
             <div class="card-content">
-
-              <a href="#" class="btn right btn-small">following</a>
+              <% if current_user.following? user.id %>
+                  <%= link_to 'following', relationship_path(id: user.id), method: :delete,
+                              title: "unfollow",
+                              class: "btn right btn-small" %>
+              <% else %>
+                  <%= link_to 'follow', relationships_path(following_id: user.id), method: :post, class: "btn right btn-small" %>
+              <% end %>
               <%= link_to profile_path(id: user.id) do %>
                   <span class="card-title card-full-name"><%= user.full_name %></span>
               <% end %>
