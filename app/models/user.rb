@@ -26,9 +26,8 @@ class User < ActiveRecord::Base
     active_relationships.find_by(followed_id: other.id).destroy
   end
 
-  def following?(other)
-    following.include?(other)
-
+  def following?(other_id)
+    following.include? User.find other_id
   end
 
   def self.search_by_user(search_text)

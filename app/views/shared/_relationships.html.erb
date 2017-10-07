@@ -6,12 +6,23 @@
             <div class="card-image responsive-img">
               <img src="http://materializecss.com/images/office.jpg">
             </div>
-            <%= gravatar_image_tag user.email, class: "circle avatar float-avatar" %>
+            <%= link_to profile_path(id: user.id) do %>
+                <%= gravatar_image_tag user.email, class: "circle avatar float-avatar" %>
+            <% end %>
             <div class="card-content">
-
-              <a href="#" class="btn right btn-small">following</a>
-              <span class="card-title card-full-name"><%= user.full_name %></span>
-              <span class="card-title card-username">@<%= user.username %></span>
+              <% if current_user.following? user.id %>
+                  <%= link_to 'following', relationship_path(id: user.id), method: :delete,
+                              title: "unfollow",
+                              class: "btn right btn-small" %>
+              <% else %>
+                  <%= link_to 'follow', relationships_path(following_id: user.id), method: :post, class: "btn right btn-small" %>
+              <% end %>
+              <%= link_to profile_path(id: user.id) do %>
+                  <span class="card-title card-full-name"><%= user.full_name %></span>
+              <% end %>
+              <%= link_to profile_path(id: user.id) do %>
+                  <span class="card-title card-username">@<%= user.username %></span>
+              <% end %>
             </div>
           </div>
         </div>
