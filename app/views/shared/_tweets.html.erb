@@ -1,4 +1,5 @@
 <div id="<%= tab_id %>">
+  <% if tweets.any? %>
   <ul class="collection">
     <% tweets.each do |tweet| %>
         <li class="collection-item avatar">
@@ -25,4 +26,11 @@
         </li>
     <% end %>
   </ul>
+  <% else %>
+    <div class="empty-collection center">
+      <p>Você ainda não tem nenhum tweet</p>
+      <p>Começe por aqui:</p>
+      <%= link_to 'Tweet', new_tweet_path, class: "btn halfway-fab waves-effect waves-light modal-trigger" %>
+    </div>
+  <% end%>
 </div>

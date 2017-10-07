@@ -38,3 +38,14 @@
     }
   }
 }
+
+.empty-collection p {
+  color: $blue_light !important;
+  font-size: 1.5rem;
+}
+
+.empty-collection {
+  padding-top: 30%;
+  padding-bottom: 30%;
+  border-top: 1px solid #eaeaea;
+}
