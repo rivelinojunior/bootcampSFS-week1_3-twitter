@@ -12,7 +12,7 @@
               <% end %>
               <div class="card-content">
                 <% if current_user.following? user.id %>
-                    <%= link_to 'following', relationship_path(id: user.id), method: :delete,
+                    <%= link_to 'unfollow', relationship_path(id: user.id), method: :delete,
                                 title: "unfollow",
                                 class: "btn right btn-small",
                                 :data => {:confirm => 'Are you sure?'}%>
