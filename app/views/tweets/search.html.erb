@@ -1,11 +1,59 @@
-<div class="container">
-  <ul>
-    <% if @tweets %>
-      <% @tweets.each do |tweet| %>
-          <li><%= tweet.description %></li>
-      <% end %>
-    <% else %>
-      <h2>Nenhum registro localizado</h2>
-    <% end %>
-  </ul>
+<div class="row">
+  <div class="col m3 hide-on-small-only">
+    <div class="card card-user">
+      <div class="card-content">
+        <div class="row center">
+          <%= gravatar_image_tag current_user.email, class: "profile-pic circle" %>
+        </div>
+        <div class="row center">
+          <p class="profile-name"><%= current_user.full_name %></p>
+          <p>@<%= current_user.username %></p>
+          <%= link_to 'Tweet', new_tweet_path, class: "btn halfway-fab waves-effect waves-light modal-trigger" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col s12 m6">
+    <div class="card card-twitter">
+      <div class="card-content">
+
+        <div class="card-tabs">
+          <ul class="tabs center">
+            <li class="tab">
+              <a class="active" href="#tweets">Tweets <p class="text-center"><%= @tweets.count %></p></a>
+            </li>
+            <li class="tab">
+              <a href="#users">Users <p class="text-center"><%= @users.count %></p></a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-content tweets-card-content">
+          <%= render partial: 'tweets' %>
+          <%= render partial: 'users', locals: { users: @users, div_id: 'users' }%>
+        </div>
+      </div>
+
+      <div style="display: none" class="card-action">
+        <a href="#">Carregar mais</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col m3 hide-on-small-only">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">Hashtags Cloud</span>
+        <p>
+          I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.
+        </p>
+      </div>
+
+      <div class="card-action">
+        <a href="#">This is a link</a>
+      </div>
+    </div>
+  </div>
+
 </div>
