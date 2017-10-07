@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:like, :dislike, :destroy]
   before_action :authenticate_user!
+  before_action :creator?, only: :destroy
 
   def index
     @tweets = Tweet.timeline current_user.id
@@ -62,6 +63,10 @@ class TweetsController < ApplicationController
 
   def set_tweet
     @tweet = Tweet.find_by id: params[:id]
+  end
+
+  def creator?
+    @tweet.creator?current_user.id
   end
 
 end
