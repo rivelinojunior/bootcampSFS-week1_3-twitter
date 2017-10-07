@@ -14,7 +14,8 @@
                 <% if current_user.following? user.id %>
                     <%= link_to 'following', relationship_path(id: user.id), method: :delete,
                                 title: "unfollow",
-                                class: "btn right btn-small" %>
+                                class: "btn right btn-small",
+                                :data => {:confirm => 'Are you sure?'}%>
                 <% else %>
                     <%= link_to 'follow', relationships_path(following_id: user.id), method: :post, class: "btn right btn-small" %>
                 <% end %>
