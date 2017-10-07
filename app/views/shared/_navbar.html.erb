@@ -15,9 +15,9 @@
         <!-- Dropdown Trigger -->
         <li class=""><%= gravatar_image_tag current_user.email, class: "avatar-nav circle" %></li>
         <li><%= link_to 'Home', root_path %></li>
-        <li><%= link_to 'Add New Tweet', new_tweet_path %></li>
-        <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to 'Tweet', new_tweet_path %></li>
+        <li><%= link_to 'Profile', profile_path(id: current_user.id) %></li>
+        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
       </ul>
 
       <ul class="right hide-on-med-and-down">
@@ -38,8 +38,7 @@
 
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-  <li><%= link_to 'Add New Tweet', new_tweet_path %></li>
-  <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-  <li class="divider"></li>
-  <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+  <li><%= link_to 'Tweet', new_tweet_path %></li>
+  <li><%= link_to 'Profile', profile_path(id: current_user.id) %></li>
+  <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
 </ul>
