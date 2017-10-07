@@ -1,14 +1,14 @@
 .card .tweets-card-content {
-    padding: 10px 2px;
+  padding: 10px 2px;
 }
 
 .card .tweets-card-content .collection {
-    border-left: none;
-    border-right: none;
+  border-left: none;
+  border-right: none;
 }
 
 .tweets-card-content .card-action {
-    border-top: none;
+  border-top: none;
 }
 
 .tweets-card-content {
@@ -29,6 +29,12 @@
 
     p {
       width: 95%;
+    }
+
+    .count-likes {
+      width: 24px;
+      height: 24px;
+      display: block;
     }
   }
 }
