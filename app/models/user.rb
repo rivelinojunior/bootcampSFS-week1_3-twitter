@@ -29,13 +29,7 @@ class User < ActiveRecord::Base
 
   end
 
-  def self.search_by_user(username)
-    user = find_by(username: username)
-
-    if user
-      user.tweets
-    else
-      nil
-    end
+  def self.search_by_user(search_text)
+    where("username LIKE lower(?)", "%#{search_text.downcase}%").order(username: :asc)
   end
 end
