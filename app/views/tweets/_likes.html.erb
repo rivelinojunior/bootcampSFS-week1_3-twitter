@@ -1,1 +1,16 @@
-<div id="likes">Likes</div>
+<div id="likes">
+  <ul class="collection">
+    <% tweets.each do |tweet| %>
+        <li class="collection-item avatar">
+          <div class="item-tweet">
+            <%= gravatar_image_tag tweet.user.email, class: "circle" %>
+            <span class="title"><%= tweet.user.full_name %></span>
+            <span class="username">@<%= tweet.user.username %></span>
+
+            <p><%= tweet.description %></p>
+            <p><a href="#!" class="secondary-content"><i class="material-icons">favorite_border</i></a></p>
+          </div>
+        </li>
+    <% end %>
+  </ul>
+</div>
