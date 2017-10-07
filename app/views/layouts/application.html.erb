@@ -21,20 +21,8 @@
 <script>
     $(document).ready(function () {
         $(".button-collapse").sideNav();
-        $('.modal').modal();
-        $("#image_description").bind('input propertychange', limitTextSize);
+        $("#image_description").bind('input propertychange', limitTextSize)
     });
-
-    function limitTextSize(e) {
-			    var max = 280
-			    var txt = $("#image_description").val();
-			    var left = txt.substring(0, max);
-			    var right = txt.substring(max);
-			    var html = left + '<span class="highlight">' + right + "</span>";
-			    $("#overflowText").html(html);
-			    $("#counter").html(max - txt.length);
-			    $("#tweet_button").attr("disabled", txt.length > max);
-      }
 </script>
 
 </body>

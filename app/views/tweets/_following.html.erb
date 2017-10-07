@@ -1,18 +1,17 @@
 <div id="following" class="following">
   <div class="row">
     <% following.each do |user| %>
-        <div class="col s12 m4">
+        <div class="col s12 m12 l6">
           <div class="card">
-            <div class="card-image">
+            <div class="card-image responsive-img">
               <img src="http://materializecss.com/images/office.jpg">
-              <span class="card-title"><%= user.full_name %></span>
             </div>
+            <%= gravatar_image_tag current_user.email, class: "circle avatar float-avatar" %>
             <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
+
+              <a href="#" class="btn right btn-small">following</a>
+              <span class="card-title card-full-name"><%= user.full_name %></span>
+              <span class="card-title card-username">@<%= user.username %></span>
             </div>
           </div>
         </div>
