@@ -1,43 +1,43 @@
 <div id="<%= tab_id %>">
   <% if tweets.any? %>
-  <ul class="collection">
-    <% tweets.each do |tweet| %>
-        <li class="collection-item avatar">
-          <div class="item-tweet">
-            <%= link_to profile_path(id: tweet.user.id) do %>
-                <%= gravatar_image_tag tweet.user.email, class: "circle" %>
-            <% end %>
-            <%= link_to profile_path(id: tweet.user.id) do %>
-                <span class="title"><%= tweet.user.full_name %></span>
-            <% end %>
-            <%= link_to profile_path(id: tweet.user.id) do %>
-                <span class="username">@<%= tweet.user.username %></span>
-            <% end %>
+      <ul class="collection">
+        <% tweets.each do |tweet| %>
+            <li class="collection-item avatar">
+              <div class="item-tweet">
+                <%= link_to profile_path(id: tweet.user.id) do %>
+                    <%= gravatar_image_tag tweet.user.email, class: "circle" %>
+                <% end %>
+                <%= link_to profile_path(id: tweet.user.id) do %>
+                    <span class="title"><%= tweet.user.full_name %></span>
+                <% end %>
+                <%= link_to profile_path(id: tweet.user.id) do %>
+                    <span class="username">@<%= tweet.user.username %></span>
+                <% end %>
 
-            <p><%= tweet.description %></p>
-            <%= link_to "Delete", tweet_path(id: tweet.id), method: :delete, class: 'button' %>
-            <p>
-              <% if tweet.didilike? current_user.id %>
-                  <%= link_to dislike_path_url(id: tweet.id), method: :delete, class: "secondary-content" do %>
-                      <i class="material-icons">favorite</i>
-                      <span class="count-likes center "><%= tweet.liked_users.count %></span>
+                <p><%= tweet.description %></p>
+                <%= link_to "Delete", tweet_path(id: tweet.id), method: :delete, class: 'button' %>
+                <p>
+                  <% if tweet.didilike? current_user.id %>
+                      <%= link_to dislike_path_url(id: tweet.id), method: :delete, class: "secondary-content" do %>
+                          <i class="material-icons">favorite</i>
+                          <span class="count-likes center "><%= tweet.liked_users.count %></span>
+                      <% end %>
+                  <% else %>
+                      <%= link_to like_path_url(id: tweet.id), method: :put, class: "secondary-content" do %>
+                          <i class="material-icons">favorite_border</i>
+                          <span class="count-likes center"><%= tweet.liked_users.count %></span>
+                      <% end %>
                   <% end %>
-              <% else %>
-                  <%= link_to like_path_url(id: tweet.id), method: :put, class: "secondary-content" do %>
-                      <i class="material-icons">favorite_border</i>
-                      <span class="count-likes center"><%= tweet.liked_users.count %></span>
-                  <% end %>
-              <% end %>
-            </p>
-          </div>
-        </li>
-    <% end %>
-  </ul>
+                </p>
+              </div>
+            </li>
+        <% end %>
+      </ul>
   <% else %>
-    <div class="empty-collection center">
-      <p>Você ainda não tem nenhum tweet</p>
-      <p>Começe por aqui:</p>
-      <%= link_to 'Tweet', new_tweet_path, class: "btn halfway-fab waves-effect waves-light modal-trigger" %>
-    </div>
-  <% end%>
+      <div class="empty-collection center">
+        <p>You don't have any tweets</p>
+        <p>Start here:</p>
+        <%= link_to 'Tweet', new_tweet_path, class: "btn halfway-fab waves-effect waves-light modal-trigger" %>
+      </div>
+  <% end %>
 </div>
