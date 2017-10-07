@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :liked_tweets, through: :likes, source: :tweet
 
+  validates :full_name, :username, presence: true
+
 
   def follow(other)
     active_relationships.create(followed_id: other.id)
