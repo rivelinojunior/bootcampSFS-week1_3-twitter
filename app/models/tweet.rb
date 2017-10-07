@@ -15,8 +15,12 @@ class Tweet < ApplicationRecord
     self.likes.create user_id: user_id
   end
 
-  def self.dislike(like_id)
-    Like.destroy like_id
+  def dislike(user_id)
+    self.likes.where(user_id: user_id).first.destroy
+  end
+
+  def didilike?(user_id)
+    user_id.in? self.liked_users.ids
   end
 
   def self.get_timeline(user_id)
@@ -35,7 +39,7 @@ class Tweet < ApplicationRecord
   end
 
   def save_with_hashtag
-    self.hashtag_list = self.description.scan(/#\w+/).map { |item| item.gsub('#', '') } 
+    self.hashtag_list = self.description.scan(/#\w+/).map {|item| item.gsub('#', '')}
 
     self.save
   end
