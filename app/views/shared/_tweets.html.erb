@@ -14,6 +14,7 @@
             <% end %>
 
             <p><%= tweet.description %></p>
+            <%= link_to "Delete", tweet_path(id: tweet.id), method: :delete, class: 'button' %>
             <p>
               <% if tweet.didilike? current_user.id %>
                   <%= link_to dislike_path_url(id: tweet.id), method: :delete, class: "secondary-content" do %>

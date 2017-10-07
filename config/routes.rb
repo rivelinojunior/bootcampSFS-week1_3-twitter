@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
-  resources :tweets, only: [:index, :new, :create]
+  resources :tweets, only: [:index, :new, :create, :destroy]
   resources :profile, only: [:show]
   resources :relationships, only: [:create, :destroy]
 
