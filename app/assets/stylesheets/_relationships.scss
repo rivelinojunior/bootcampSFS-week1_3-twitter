@@ -1,7 +1,44 @@
 .following {
   .card-image {
     img {
-      height: 70px;
+      height: 79px;
     }
   }
+}
+
+.card-full-name, .card-username {
+  margin-left: 4%;
+  color: $dark_blue;
+}
+
+.card-full-name {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.card-username {
+  font-size: .875rem;
+}
+
+.card .card-content .card-title {
+  line-height: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-small {
+  font-size: 0.6rem;
+  margin-right: 4%;
+  padding: 0 1.5rem;
+  position: relative;
+  bottom: 70px;
+}
+
+.float-avatar {
+  position: relative;
+  bottom: 20px;
+  margin-left: 4%;
+  width: 60px;
+  height: 60px;
+  border: 2px solid $white;
 }
