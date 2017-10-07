@@ -1,0 +1,14 @@
+<div class="col m3 hide-on-small-only">
+  <div class="card card-user">
+    <div class="card-content">
+      <div class="row center">
+        <%= gravatar_image_tag user.email, class: "profile-pic circle" %>
+      </div>
+      <div class="row center">
+        <p class="profile-name"><%= user.full_name %></p>
+        <p>@<%= user.username %></p>
+        <%= link_to 'Tweet', new_tweet_path, class: "btn halfway-fab waves-effect waves-light modal-trigger" %>
+      </div>
+    </div>
+  </div>
+</div>

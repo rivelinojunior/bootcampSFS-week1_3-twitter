@@ -1,4 +1,4 @@
-<div id="likes">
+<div id="<%= tab_id %>">
   <ul class="collection">
     <% tweets.each do |tweet| %>
         <li class="collection-item avatar">
@@ -12,10 +12,12 @@
               <% if tweet.didilike? current_user.id %>
                   <%= link_to dislike_path_url(id: tweet.id), method: :delete, class: "secondary-content" do %>
                       <i class="material-icons">favorite</i>
+                      <span class="count-likes center "><%= tweet.liked_users.count %></span>
                   <% end %>
               <% else %>
                   <%= link_to like_path_url(id: tweet.id), method: :put, class: "secondary-content" do %>
                       <i class="material-icons">favorite_border</i>
+                      <span class="count-likes center"><%= tweet.liked_users.count %></span>
                   <% end %>
               <% end %>
             </p>

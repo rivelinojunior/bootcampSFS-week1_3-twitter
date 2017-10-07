@@ -4,7 +4,7 @@
       <span class="card-title">Hashtags Cloud</span>
       <p>
         <% tag_cloud(@hashtags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-          <%= link_to '#' + tag.name, { :action => :search, :q => tag.name }, :class => css_class %>
+          <%= link_to '#' + tag.name, { :controller => :tweets, :action => :search, :q => tag.name }, :class => css_class %>
         <% end %>
       </p>
     </div>

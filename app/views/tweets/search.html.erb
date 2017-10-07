@@ -1,19 +1,5 @@
 <div class="row">
-  <div class="col m3 hide-on-small-only">
-    <div class="card card-user">
-      <div class="card-content">
-        <div class="row center">
-          <%= gravatar_image_tag current_user.email, class: "profile-pic circle" %>
-        </div>
-        <div class="row center">
-          <p class="profile-name"><%= current_user.full_name %></p>
-          <p>@<%= current_user.username %></p>
-          <%= link_to 'Tweet', new_tweet_path, class: "btn halfway-fab waves-effect waves-light modal-trigger" %>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <%= render 'shared/info_user', user: current_user %>
   <div class="col s12 m6">
     <div class="card card-twitter">
       <div class="card-content">
@@ -29,8 +15,8 @@
           </ul>
         </div>
         <div class="card-content tweets-card-content">
-          <%= render 'tweets', tweets: @tweets %>
-          <%= render partial: 'users', locals: { users: @users, div_id: 'users' }%>
+          <%= render 'shared/tweets', tweets: @tweets, tab_id: 'tweets'  %>
+          <%= render 'shared/relationships', users: @users, tab_id: 'users' %>
         </div>
       </div>
 
@@ -40,6 +26,6 @@
     </div>
   </div>
 
-  <%= render partial: 'hashtags_cloud' %>
+  <%= render 'shared/hashtags_cloud' %>
 
 </div>

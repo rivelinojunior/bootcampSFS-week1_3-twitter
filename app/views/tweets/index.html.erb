@@ -1,23 +1,9 @@
 <div class="row">
-  <div class="col m3 hide-on-small-only">
-    <div class="card card-user">
-      <div class="card-content">
-        <div class="row center">
-          <%= gravatar_image_tag current_user.email, class: "profile-pic circle" %>
-        </div>
-        <div class="row center">
-          <p class="profile-name"><%= current_user.full_name %></p>
-          <p>@<%= current_user.username %></p>
-          <%= link_to 'Tweet', new_tweet_path, class: "btn halfway-fab waves-effect waves-light modal-trigger" %>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= render 'shared/info_user', user: current_user %>
 
   <div class="col s12 m6">
     <div class="card card-twitter">
       <div class="card-content">
-
         <div class="card-tabs">
           <ul class="tabs center">
             <li class="tab">
@@ -32,32 +18,16 @@
           </ul>
         </div>
         <div class="card-content tweets-card-content">
-          <%= render 'tweets', tweets: @tweets %>
-          <%= render 'following', following: current_user.following %>
-          <%= render 'followers', followers: current_user.followers %>
-          <%= render 'likes', tweets: current_user.liked_tweets %>
+          <%= render 'shared/tweets', tweets: @tweets, tab_id: 'tweets'  %>
+          <%= render 'shared/relationships', users: current_user.following, tab_id: 'following' %>
+          <%= render 'shared/relationships', users: current_user.followers, tab_id: 'followers' %>
+          <%= render 'shared/tweets', tweets: current_user.liked_tweets, tab_id: 'likes'  %>
         </div>
       </div>
 
     </div>
   </div>
 
-  <%= render 'hashtags_cloud' %>
-
-</div>
-<!-- Modal Structure -->
-<div id="modal1" class="modal">
-  <div class="center-align modal-content">
-    <h4>Compose your tweet</h4>
-    <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="main-text-area input-field col s12">
-            <textarea id="image_description" type="text" class="tweet-textarea" placeholder="What's happening?"></textarea>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
+  <%= render 'shared/hashtags_cloud' %>
 </div>
   
