@@ -6,16 +6,27 @@
       </div>
       <div class="row center">
         <p class="profile-name"><%= user.full_name %></p>
-        <p class="profile-username">
-          <% if current_user.id == user.id %>
+        <% if current_user.id == user.id %>
+            <p class="profile-username">
               <%= link_to edit_user_registration_path do %>
                   @<%= user.username %> <i class="material-icons dp48">edit</i>
               <% end %>
-          <% else %>
+            </p>
+            <%= link_to 'Tweet', new_tweet_path, class: "btn halfway-fab waves-effect waves-light modal-trigger" %>
+        <% else %>
+            <p class="profile-username">
               @<%= user.username %>
-          <% end %>
-        </p>
-        <%= link_to 'Tweet', new_tweet_path, class: "btn halfway-fab waves-effect waves-light modal-trigger" %>
+            </p>
+            <% if current_user.following? user.id %>
+                <%= link_to 'following', relationship_path(id: user.id), method: :delete,
+                            title: "unfollow",
+                            class: "btn halfway-fab waves-effect waves-light modal-trigger",
+                            :data => {:confirm => 'Are you sure?'} %>
+            <% else %>
+                <%= link_to 'follow', relationships_path(following_id: user.id), method: :post,
+                            class: "btn halfway-fab waves-effect waves-light modal-trigger" %>
+            <% end %>
+        <% end %>
       </div>
     </div>
   </div>
