@@ -23,6 +23,10 @@ class Tweet < ApplicationRecord
     user_id.in? self.liked_users.ids
   end
 
+  def creator?(user_id)
+    self.user_id.equal?(user_id)
+  end
+
   def self.get_timeline(user_id)
     user = User.find_by(id: user_id)
     user_ids = user.following.ids
