@@ -47,3 +47,11 @@ nav ul a.dropdown-button:hover {
 #search:focus {
   width: 100%;
 }
+
+nav .material-icons {
+  color: $white;
+}
+
+.home-link .material-icons {
+  margin: 0;
+}
